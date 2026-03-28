@@ -369,13 +369,23 @@ a {
 
 /* ── responsive ── */
 
+.mobile-spacer {
+  display: none;
+}
+
 @media (max-width: 900px) {
+  .mobile-spacer {
+    display: block;
+    height: 60px;
+    flex-shrink: 0;
+  }
+
   .site-header {
-    padding-bottom: 16px;
+    padding-bottom: 0;
   }
 
   .site-shell--home main {
-    padding-top: 48px;
+    padding-top: 0;
   }
 
   .hero-main {
@@ -414,8 +424,8 @@ a {
     width: min(100% - 24px, 1200px);
   }
 
-  .site-shell--home main {
-    padding-top: 56px;
+  .mobile-spacer {
+    height: 70px;
   }
 
   .footer-links,
