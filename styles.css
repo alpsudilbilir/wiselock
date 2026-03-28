@@ -1,0 +1,412 @@
+:root {
+  --accent: #ff5757;
+  --accent-soft: rgba(255, 87, 87, 0.12);
+  --text: #1a1a1c;
+  --muted: #636366;
+  --border: rgba(20, 20, 20, 0.08);
+  --surface: #ffffff;
+  --page: #ffffff;
+  --shadow: 0 20px 48px rgba(20, 20, 20, 0.07);
+  --radius-lg: 24px;
+  --font-rounded: "SF Pro Rounded", "SF Pro Display", "SF Pro Text", ui-rounded, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+}
+
+html.page-home, .page-home body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-rounded);
+  color: var(--text);
+  background: var(--page);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── shell ── */
+
+.site-shell {
+  width: min(1200px, calc(100% - 40px));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-shell--home {
+  height: 100vh;
+}
+
+
+/* ── header / navbar ── */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0 0;
+  flex-shrink: 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.brand-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(20, 20, 20, 0.08);
+}
+
+.brand-lock {
+  color: var(--accent);
+}
+
+.brand:hover {
+  color: var(--accent);
+}
+
+/* ── hero / main area ── */
+
+.site-shell--home main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-height: 0;
+}
+
+.hero-main {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-copy {
+  min-width: 0;
+  text-align: center;
+}
+
+.hero-lead {
+  position: relative;
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(2.2rem, 4.8vw, 3.4rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.22;
+  min-height: 3em;
+}
+
+.hero-lead-highlight {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.hero-actions {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+}
+
+.app-store-badge-link {
+  display: inline-block;
+  line-height: 0;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.app-store-badge-link:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+.app-store-badge-img {
+  display: block;
+  width: auto;
+  height: 72px;
+}
+
+/* ── phone screenshot ── */
+
+.hero-device-shot {
+  margin: 0;
+  justify-self: end;
+  align-self: center;
+  max-width: min(320px, 100%);
+  border-radius: 50px;
+  overflow: hidden;
+  line-height: 0;
+  filter: drop-shadow(0 22px 40px rgba(20, 20, 20, 0.14));
+}
+
+.hero-screenshot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 50px;
+}
+
+/* ── sr-only ── */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── typewriter ── */
+
+.hero-typewriter {
+  position: relative;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  margin-left: 3px;
+  width: 2px;
+  height: 0.72em;
+  vertical-align: -0.08em;
+  border-radius: 1px;
+  background: var(--accent);
+  animation: typewriter-cursor-blink 0.75s step-end infinite;
+}
+
+.typewriter-cursor--done {
+  opacity: 0;
+  width: 0;
+  margin: 0;
+  animation: none;
+}
+
+@keyframes typewriter-cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typewriter-cursor {
+    animation: none;
+  }
+
+  .typewriter-cursor--done {
+    opacity: 0;
+    width: 0;
+    margin: 0;
+  }
+}
+
+/* ── footer ── */
+
+.site-footer {
+  padding: 14px 0;
+  flex-shrink: 0;
+}
+
+.site-footer--centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer-links a {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.footer-legal {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* ── legal pages ── */
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.site-nav a {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.site-nav a:hover {
+  color: var(--accent);
+}
+
+.legal-copy,
+.legal-list {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.legal-shell {
+  padding: 48px 4px 0;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.legal-shell h1,
+.legal-shell h2 {
+  margin: 0;
+  letter-spacing: -0.06em;
+}
+
+.legal-header {
+  margin-bottom: 22px;
+}
+
+.legal-header p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.legal-card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+  padding: 28px;
+  border-radius: var(--radius-lg);
+}
+
+.legal-shell h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.08;
+}
+
+.legal-card h2 {
+  font-size: 1.4rem;
+  margin: 0;
+  letter-spacing: -0.06em;
+}
+
+.legal-card > * + * {
+  margin-top: 12px;
+}
+
+.legal-list {
+  padding-left: 20px;
+}
+
+.legal-list li + li {
+  margin-top: 8px;
+}
+
+.site-shell:not(.site-shell--home) .site-footer {
+  margin-top: 64px;
+}
+
+.brand-footer {
+  color: var(--muted);
+}
+
+/* ── responsive ── */
+
+@media (max-width: 900px) {
+  .hero-main {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hero-device-shot {
+    justify-self: center;
+    max-width: min(260px, 70vw);
+    order: 1;
+  }
+
+  .hero-copy {
+    order: 0;
+  }
+
+  .hero-lead {
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
+    min-height: auto;
+  }
+
+  html.page-home, .page-home body {
+    overflow: auto;
+    height: auto;
+  }
+
+  .site-shell--home {
+    height: auto;
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-shell {
+    width: min(100% - 24px, 1200px);
+  }
+
+  .footer-links,
+  .hero-actions {
+    flex-wrap: wrap;
+  }
+
+  .app-store-badge-img {
+    height: 60px;
+  }
+
+  .legal-card {
+    border-radius: 22px;
+  }
+}
